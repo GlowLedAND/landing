@@ -197,10 +197,44 @@
       color:var(--muted);
     }
   </style>
+  .side-info{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  z-index: 2;
+}
+
+.side-info.left{ left: 16px; }
+.side-info.right{ right: 16px; text-align: right; }
+
+.side-info span{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
 </head>
 <body>
 
 <div class="bg"></div>
+  <div class="side-info left">
+  <span>DES DE 2025</span>
+  <span>SEGURETAT 24/7</span>
+  <span>SENSE INTERMEDIARIS</span>
+</div>
+
+<div class="side-info right">
+  <span>SERVEIS PRIVATS</span>
+  <span>ACCÉS IMMEDIAT</span>
+  <span>TRACTE DIRECTE</span>
+</div>
+
 
 <header>
   <nav>
@@ -279,7 +313,7 @@
 </section>
 
 <footer>
-  © 2025 Aurum Park Andorra · Custòdia Premium de Vehicles
+  © 2026 Aurum Park Andorra · Custòdia Premium de Vehicles
 </footer>
 
 </body>
