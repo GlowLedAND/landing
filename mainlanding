@@ -1,0 +1,103 @@
+<!doctype html>
+<div style="margin-top:12px">
+<a href="#contacte" class="btn">Demana una cita</a>
+<a href="#portfoli" style="margin-left:12px;text-decoration:none;font-weight:700;color:var(--accent)">Veure projectes →</a>
+</div>
+</div>
+
+
+<aside class="card" aria-hidden="true">
+<h3>Contacta'ns</h3>
+<p class="muted">Tel: +34 600 000 000<br>Email: hola@teuemail.com</p>
+<p class="muted">O envia'ns un missatge ràpid:</p>
+<form id="quick-contact" onsubmit="handleQuickContact(event)">
+<input required name="name" placeholder="El teu nom">
+<input required name="email" type="email" placeholder="El teu email">
+<button class="btn" type="submit">Envia</button>
+<p id="qc-msg" class="muted" style="font-size:14px;margin-top:8px"></p>
+</form>
+</aside>
+</section>
+
+
+<section id="sobre" class="section">
+<h2>Sobre nosaltres</h2>
+<p class="muted">Parla aquí de la història de l'empresa, la teva missió i els valors. Substitueix aquest text amb detalls rellevants: experiència, certificacions, equip i oferta única.</p>
+</section>
+
+
+<section id="serveis" class="section">
+<h2>Serveis</h2>
+<div class="services-grid">
+<div class="card"><h3>Servei A</h3><p class="muted">Descripció curta del servei A i beneficis.</p></div>
+<div class="card"><h3>Servei B</h3><p class="muted">Descripció curta del servei B i beneficis.</p></div>
+<div class="card"><h3>Servei C</h3><p class="muted">Descripció curta del servei C i beneficis.</p></div>
+</div>
+</section>
+
+
+<section id="portfoli" class="section">
+<h2>Projectes destacats</h2>
+<div class="portfolio">
+<img src="https://picsum.photos/seed/p1/800/600" alt="Projecte 1">
+<img src="https://picsum.photos/seed/p2/800/600" alt="Projecte 2">
+<img src="https://picsum.photos/seed/p3/800/600" alt="Projecte 3">
+<img src="https://picsum.photos/seed/p4/800/600" alt="Projecte 4">
+</div>
+</section>
+
+
+<section id="contacte" class="section">
+<h2>Contacte</h2>
+<p class="muted">Si prefereixes envia'ns un email directament: <a href="mailto:hola@teuemail.com">hola@teuemail.com</a></p>
+
+
+<form action="https://formspree.io/f/yourformid" method="POST" onsubmit="onsubmitContact()">
+<!-- Per a enviaments reals substitueix l'atribut action per l'endpoint del teu servei (Formspree, Netlify Forms, etc.) -->
+<div class="row">
+<input name="name" placeholder="Nom" required>
+<input name="email" type="email" placeholder="Email" required>
+</div>
+<input name="company" placeholder="Empresa (opcional)">
+<textarea name="message" placeholder="Missatge" required></textarea>
+<button class="btn" type="submit">Envia missatge</button>
+<p id="sent-msg" class="muted" style="margin-top:8px"></p>
+</form>
+</section>
+
+
+</main>
+
+
+<footer>
+<div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+<div>
+<strong>NOM_EMPRESA</strong><br>
+<small class="muted">Adreça — Telèfon — CIF (opcional)</small>
+</div>
+<div class="muted">© <span id="year"></span> NOM_EMPRESA. Tots els drets reservats.</div>
+</div>
+</footer>
+
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+function handleQuickContact(e){
+e.preventDefault();
+var f = e.target;
+var msg = document.getElementById('qc-msg');
+msg.textContent = 'Gràcies '+(f.name.value || '')+' — Hem rebut la teva sol·licitud (simulat).';
+f.reset();
+}
+
+
+function onsubmitContact(){
+var el = document.getElementById('sent-msg');
+el.textContent = 'Enviant...';
+setTimeout(function(){ el.textContent = 'Gràcies — el teu missatge ha estat enviat (simulat).'; },900);
+}
+</script>
+</body>
+</html>
